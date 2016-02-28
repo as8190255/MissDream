@@ -13,7 +13,6 @@ import org.jc.missdream.engine.BiliFuckEngine;
  */
 public class BiliFuckEngineImpl implements BiliFuckEngine{
 
-	
 	@Override
 	public List<C_Month_Result> getCartoonByMonth(String year, String month) {
 		return new ArrayList<C_Month_Result>();

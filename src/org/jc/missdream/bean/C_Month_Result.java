@@ -5,8 +5,11 @@ package org.jc.missdream.bean;
  * @author Jc
  *
  */
-public class C_Month_Result {
+public class C_Month_Result extends BaseBean{
 	
+	public C_Month_Result(String content) {
+		super(content);
+	}
 	String spid;
 	/**
 	 * ��������Ϣ
@@ -74,6 +77,5 @@ public class C_Month_Result {
 	public void setTypeid(String typeid) {
 		this.typeid = typeid;
 	}
-	
 	
 }
