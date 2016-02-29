@@ -1,5 +1,9 @@
 package org.jc.missdream.bean;
 
+import java.util.List;
+
+import com.alibaba.fastjson.JSON;
+
 /**
  * »ù´¡Ä£ÐÍ
  * @author jincai
@@ -8,11 +12,14 @@ package org.jc.missdream.bean;
 public class BaseBean {
 
 	String resultString;
-	BaseBean baseBean;
+	List<BaseBean> baseBeans;
 	public BaseBean(){
 	}
 	public BaseBean(String content){
 		resultString=content;
+	}
+	public String getResultString(){
+		return resultString;
 	}
 	
 }

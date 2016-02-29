@@ -137,17 +137,17 @@ public class RequestFuture<T> implements Future<T>, Response.Listener<T>,
         return mResultReceived || mException != null || isCancelled();
     }
 
-    @Override
-    public synchronized void onResponse(T response) {
-        mResultReceived = true;
+	@Override
+	public void onErrorResponse(int id, VolleyError error) {
+		mException = error;
+        notifyAll();
+	}
+
+	@Override
+	public void onResponse(int id, T response) {
+		mResultReceived = true;
         mResult = response;
         notifyAll();
-    }
-
-    @Override
-    public synchronized void onErrorResponse(VolleyError error) {
-        mException = error;
-        notifyAll();
-    }
+	}
 }
 

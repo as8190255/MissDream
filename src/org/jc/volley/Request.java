@@ -106,6 +106,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     /** An opaque token tagging this request; used for bulk cancellation. */
     private Object mTag;
+    
+    private int id;
 
     /**
      * Creates a new request with the given URL and error listener.  Note that
@@ -134,6 +136,16 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         setRetryPolicy(new DefaultRetryPolicy());
 
         mDefaultTrafficStatsTag = findDefaultTrafficStatsTag(url);
+    }
+    
+    public Request(int method, int id,String url, Response.ErrorListener listener){
+    	 mMethod = method;
+         mUrl = url;
+         mIdentifier = createIdentifier(method, url);
+         mErrorListener = listener;
+         setRetryPolicy(new DefaultRetryPolicy());
+
+         mDefaultTrafficStatsTag = findDefaultTrafficStatsTag(url);
     }
 
     /**
@@ -595,7 +607,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
      */
     public void deliverError(VolleyError error) {
         if (mErrorListener != null) {
-            mErrorListener.onErrorResponse(error);
+				mErrorListener.onErrorResponse(id, error);
         }
     }
 

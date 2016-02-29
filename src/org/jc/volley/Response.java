@@ -26,7 +26,9 @@ public class Response<T> {
     /** Callback interface for delivering parsed responses. */
     public interface Listener<T> {
         /** Called when a response is received. */
-        public void onResponse(T response);
+    	public void onResponse(int id, T response);
+        
+        
     }
 
     /** Callback interface for delivering error responses. */
@@ -35,7 +37,7 @@ public class Response<T> {
          * Callback method that an error has been occurred with the
          * provided error code and optional user-readable message.
          */
-        public void onErrorResponse(VolleyError error);
+        public void onErrorResponse(int id, VolleyError error); 
     }
 
     /** Returns a successful response containing the parsed result. */

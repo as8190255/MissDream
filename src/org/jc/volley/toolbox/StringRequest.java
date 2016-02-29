@@ -22,13 +22,17 @@ import org.jc.volley.Response;
 import org.jc.volley.Response.ErrorListener;
 import org.jc.volley.Response.Listener;
 
+import android.R.integer;
+
 import java.io.UnsupportedEncodingException;
 
 /**
  * A canned request for retrieving the response body at a given URL as a String.
  */
 public class StringRequest extends Request<String> {
-    private Listener<String> mListener;
+    
+	private int id=-1;
+	private Listener<String> mListener;
 
     /**
      * Creates a new request with the given method.
@@ -45,6 +49,17 @@ public class StringRequest extends Request<String> {
     }
 
     /**
+     * 附带id识别符
+     * 功能同上
+     */
+    public StringRequest(int method, int id, String url, Listener<String> listener,
+            ErrorListener errorListener) {
+        super(method, url, errorListener);
+        mListener = listener;
+        this.id=id;
+    }
+    
+    /**
      * Creates a new GET request.
      *
      * @param url URL to fetch the string at
@@ -53,6 +68,11 @@ public class StringRequest extends Request<String> {
      */
     public StringRequest(String url, Listener<String> listener, ErrorListener errorListener) {
         this(Method.GET, url, listener, errorListener);
+    }
+    
+    public StringRequest(String url, int id, Listener<String> listener, ErrorListener errorListener) {
+        this(Method.GET, url, listener, errorListener);
+        this.id=id;
     }
 
     @Override
@@ -64,7 +84,7 @@ public class StringRequest extends Request<String> {
     @Override
     protected void deliverResponse(String response) {
         if (mListener != null) {
-            mListener.onResponse(response);
+				mListener.onResponse(id, response);
         }
     }
 
