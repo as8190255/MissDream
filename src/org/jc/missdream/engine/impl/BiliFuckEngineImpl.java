@@ -1,21 +1,24 @@
 package org.jc.missdream.engine.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.MessageFormat;
 
-import org.jc.missdream.bean.C_Month_Result;
+import org.jc.missdream.bean.HttpBean;
+import org.jc.missdream.common.ConstantValue;
 import org.jc.missdream.engine.BiliFuckEngine;
+import org.jc.volley.toolbox.StringRequest;
 
 /**
  * 哔哩接口实现类
  * @author Jc
  *
  */
-public class BiliFuckEngineImpl implements BiliFuckEngine{
-
+public class BiliFuckEngineImpl extends BaseImpl implements BiliFuckEngine{
+	
 	@Override
-	public List<C_Month_Result> getCartoonByMonth(String year, String month) {
-		return new ArrayList<C_Month_Result>();
+	public void getCartoonByMonth(int action, String year,
+			String month, HttpBean httpBean) {
+		StringRequest stringRequest=new StringRequest(MessageFormat.format(ConstantValue.SADF_STRING, year, month), action, httpBean.getListener(), httpBean.getError());
+		startAction(httpBean, stringRequest);
 	}
 
 }
