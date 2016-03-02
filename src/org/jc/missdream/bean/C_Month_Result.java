@@ -1,7 +1,7 @@
 package org.jc.missdream.bean;
 
 /**
- * BÕ¾ ï¿½ï¿½ï¿½Â·Ý»ï¿½È¡ï¿½Â·ï¿½ï¿½ï¿½ï¿?
+ * BÕ¾ °´ÔÂ·Ý»ñÈ¡¶¯»­ÐÂ·¬
  * @author Jc
  *
  */
@@ -10,27 +10,27 @@ public class C_Month_Result {
 	
 	String spid;
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	 * ·¬¾çÖÜÐÅÏ¢
 	 */
 	String weekday;
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½
+	 * ±êÌâ
 	 */
 	String title;
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½Ð¡
+	 * ·âÃæ(Ð¡) 
 	 */
 	String scover;
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ·âÃæ(ÖÐ)
 	 */
 	String mcover;
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿?
+	 * ·âÃæ(´ó)
 	 */
 	String cover;
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½
+	 * 
 	 */
 	String typeid;
 	public String getSpid() {

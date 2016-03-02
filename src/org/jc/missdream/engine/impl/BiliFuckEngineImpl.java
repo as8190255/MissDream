@@ -17,7 +17,7 @@ public class BiliFuckEngineImpl extends BaseImpl implements BiliFuckEngine{
 	@Override
 	public void getCartoonByMonth(int action, String year,
 			String month, HttpBean httpBean) {
-		StringRequest stringRequest=new StringRequest(MessageFormat.format(ConstantValue.SADF_STRING, year, month), action, httpBean.getListener(), httpBean.getError());
+		StringRequest stringRequest=new StringRequest(MessageFormat.format(ConstantValue.FINDBY_MONTH, year, month), action, httpBean.getListener(), httpBean.getError());
 		startAction(httpBean, stringRequest);
 	}
 
