@@ -5,11 +5,9 @@ package org.jc.missdream.bean;
  * @author Jc
  *
  */
-public class C_Month_Result extends BaseBean{
+//public class C_Month_Result extends BaseBean{
+public class C_Month_Result {
 	
-	public C_Month_Result(String content) {
-		super(content);
-	}
 	String spid;
 	/**
 	 * ��������Ϣ

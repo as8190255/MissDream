@@ -1,15 +1,17 @@
 package org.jc.missdream.ui;
 
+import java.util.List;
 
 import org.jc.missdream.R;
+import org.jc.missdream.bean.C_Month_Result;
+import org.jc.missdream.common.FusionAction.BiliAction;
 import org.jc.missdream.engine.BiliFuckEngine;
 import org.jc.missdream.framework.BaseActivity;
 import org.jc.missdream.utils.AppFactory;
-import org.jc.volley.Response.Listener;
-import org.jc.volley.toolbox.StringRequest;
+
+import com.alibaba.fastjson.JSON;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 public class WellcomeActivity extends BaseActivity {
 
@@ -24,12 +26,21 @@ public class WellcomeActivity extends BaseActivity {
 	public void initView() {
 		iniHttp();
 		BiliFuckEngine engine=AppFactory.getImpl(BiliFuckEngine.class);
-		engine.getCartoonByMonth(1, "2015", "4", httpAction);
+		engine.getCartoonByMonth(BiliAction.BANGUMIBYMONTH, "2015", "4", httpAction);
 	}
 
 	@Override
 	public void onResponse(int id, String response) {
 		super.onResponse(id, response);
-		ShowToast("获取数据成功...");
+		//ShowToast("获取数据成功...");
+		switch (id) {
+		case BiliAction.BANGUMIBYMONTH:
+			List<C_Month_Result> list=JSON.parseArray(response, C_Month_Result.class);
+			ShowToast(list.size()+"");
+			break;
+		default:
+			break;
+		}
+		
 	}
 }
