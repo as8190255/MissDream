@@ -1,10 +1,6 @@
 package org.jc.missdream.engine;
 
-import java.util.List;
-
-import org.jc.missdream.bean.C_Month_Result;
 import org.jc.missdream.bean.HttpBean;
-import org.jc.volley.RequestQueue;
 
 /**
  * 哔哩哔哩动画api接口
@@ -19,4 +15,10 @@ public interface BiliFuckEngine {
 	 * @return
 	 */
 	public void getCartoonByMonth(int action, String year,String month,HttpBean httpBean);
+	
+	/**
+	 * 根据关键词搜索番剧信息
+	 * @param keyword 关键词
+	 */
+	public void getCartoonByKey(int action, String keyword,HttpBean httpBean);
 }

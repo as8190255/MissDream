@@ -16,7 +16,7 @@ import android.widget.Toast;
 public abstract class BaseActivity extends FragmentActivity implements ErrorListener,Listener<String>{
 
 	public RequestQueue mQueue;
-	public HttpBean httpAction;
+	public HttpBean httpBean;
 	
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -46,7 +46,7 @@ public abstract class BaseActivity extends FragmentActivity implements ErrorList
 	 * ³õÊ¼»¯ÍøÂç
 	 */
 	protected void iniHttp() {
-		httpAction=new HttpBean(this, this, mQueue);
+		httpBean=new HttpBean(this, this, mQueue);
 	}
 	
 	/**
