@@ -32,5 +32,9 @@ public class ConstantValue {
 	 * ¸ù¾İ¹Ø¼ü´ÊËÑË÷·¬¾ç
 	 */
 	public static final String FINDBY_KEYWORD=BILIBILI_SEARCH+"bangumi?keyword={0}";
+	/**
+	 * ßÙÁ¨ßÙÁ¨×ÖÄ»ÏÂÔØ(cid)
+	 */
+	public static final String BILIBILI_TXT="http://comment.bilibili.tv/{0}.xml";
 	
 }
